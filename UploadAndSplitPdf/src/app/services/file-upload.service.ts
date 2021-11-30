@@ -6,7 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class FileUploadService {
-  private baseUrl = 'http://localhost:8081/api/v1/pdf';
+  private baseUrl = 'https://upload-download-files-api.herokuapp.com/api/v1/pdf';
+  //private baseUrl = 'http://localhost:8080/api/v1/pdf'
 
   constructor(private http: HttpClient) { }
 
@@ -23,9 +24,9 @@ export class FileUploadService {
     return this.http.request(req);
   }
 
-  download(fileName: string) {
+  download(zipName: string) {
 
-    return this.http.get(`${this.baseUrl}/download/`+fileName, {
+    return this.http.get(`${this.baseUrl}/downloadzip/`+zipName, {
       responseType: 'arraybuffer'
     });
    
