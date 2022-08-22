@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
 import { HttpEventType, HttpResponse } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { FileUploadService } from 'src/app/services/file-upload.service';
 
 @Component({
-  selector: 'app-file-upload',
-  templateUrl: './file-upload.component.html',
-  styleUrls: ['./file-upload.component.css']
+  selector: 'app-uploadzip',
+  templateUrl: './uploadzip.component.html',
+  styleUrls: ['./uploadzip.component.css']
 })
-export class FileUploadComponent implements OnInit {
+export class UploadzipComponent implements OnInit {
   selectedFiles?: FileList;
   currentFile?: File;
   progress = 0;
@@ -29,6 +29,7 @@ export class FileUploadComponent implements OnInit {
   }
 
   download(fileName: string): void {
+
     this.uploadService.download(fileName).subscribe(
       (data => {
         
@@ -51,7 +52,7 @@ export class FileUploadComponent implements OnInit {
       if (file) {
         this.currentFile = file;
 
-        this.uploadService.upload(this.currentFile).subscribe(
+        this.uploadService.uploadZip(this.currentFile).subscribe(
           (event: any) => {
             if (event.type === HttpEventType.UploadProgress) {
               this.progress = Math.round(100 * event.loaded / event.total);

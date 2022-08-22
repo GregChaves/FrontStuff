@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class FileUploadService {
-  private baseUrl = 'https://upload-download-files-api.herokuapp.com/api/v1/pdf';
-  //private baseUrl = 'http://localhost:8080/api/v1/pdf'
+  //private baseUrl = 'https://upload-download-files-api.herokuapp.com/api/v1/pdf';
+  private baseUrl = 'http://localhost:8080/api/v1/pdf'
 
   constructor(private http: HttpClient) { }
 
@@ -17,6 +17,19 @@ export class FileUploadService {
     formData.append('file', file);
 
     const req = new HttpRequest('POST', `${this.baseUrl}/upload`, formData, {
+      reportProgress: true,
+      responseType: 'json'
+    });
+
+    return this.http.request(req);
+  }
+
+  uploadZip(file: File): Observable<HttpEvent<any>> {
+    const formData: FormData = new FormData();
+
+    formData.append('file', file);
+
+    const req = new HttpRequest('POST', `${this.baseUrl}/upload/zipfile`, formData, {
       reportProgress: true,
       responseType: 'json'
     });
