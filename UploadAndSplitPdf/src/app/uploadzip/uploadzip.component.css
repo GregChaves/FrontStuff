@@ -296,7 +296,7 @@
   .desktop1-hero {
     width: 100%;
     display: flex;
-    padding: var(--dl-space-space-threeunits);
+    padding: var(--dl-space-space-oneandhalfunits);
     max-width: var(--dl-size-size-maxwidth);
     min-height: 80vh;
     align-items: center;

@@ -10,7 +10,8 @@
     "start": "node server.js",
     "build": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "aws-deploy" : "aws s3 sync dist/Angular12FileUpload/ s3://staticfrontbucket"
   },
   "private": true,
   "dependencies": {

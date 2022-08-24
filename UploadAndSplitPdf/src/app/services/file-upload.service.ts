@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class FileUploadService {
-  //private baseUrl = 'https://upload-download-files-api.herokuapp.com/api/v1/pdf';
-  private baseUrl = 'http://localhost:8080/api/v1/pdf'
+  private baseUrl = 'http://pdfextractor-env.eba-3yhpwwgz.sa-east-1.elasticbeanstalk.com/api/v1/pdf';
+  //private baseUrl = 'http://localhost:8080/api/v1/pdf'
 
   constructor(private http: HttpClient) { }
 
